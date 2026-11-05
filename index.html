@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Entra in diretta</title>
+<link rel="stylesheet" href="ospite.css">
+</head>
+<body>
+
+<main id="schermataEntra" class="scheda" hidden>
+  <h1>Entra in diretta</h1>
+  <p class="tenue" id="invito">Sei stato invitato a una diretta. Controlla che ti vedi e ti senti bene, poi premi "Entra".</p>
+  <div class="anteprima"><video id="anteprima" autoplay playsinline muted></video><div id="sopraAnteprima" class="sopra" hidden></div></div>
+  <label class="campo">Il tuo nome
+    <input id="nome" maxlength="40" autocomplete="given-name" placeholder="Come vuoi essere chiamato">
+  </label>
+  <div class="due" id="scelte" hidden>
+    <label class="campo">Telecamera <select id="selCamera"></select></label>
+    <label class="campo">Microfono <select id="selMic"></select></label>
+  </div>
+  <div class="livello"><i id="livello"></i></div>
+  <p class="tenue piccolo">Se puoi, usa le cuffie: così non si sente l'eco. Tieni il telefono in orizzontale per un'immagine più larga.</p>
+  <button id="btnEntra" class="grande" disabled>Entra</button>
+  <p class="errore" id="erroreEntra" role="alert"></p>
+</main>
+
+<main id="schermataMessaggio" class="scheda" hidden>
+  <h1 id="messaggioTitolo"></h1>
+  <p id="messaggioTesto" class="tenue"></p>
+  <button id="btnRientra" class="grande" hidden>Rientra</button>
+</main>
+
+<section id="stanza" hidden>
+  <header class="alto">
+    <span id="statoStanza" class="chip">Collegato</span>
+    <span id="badgeOnda" class="chip onda" hidden>● SEI IN ONDA</span>
+    <span id="timerOspite" class="chip timer" role="timer" title="Il timer della diretta" hidden>⏱ <b>00:00</b></span>
+    <button id="btnAltroLato" class="chip tasto" title="Gira lo schermo dall'altra parte (se lo vedi capovolto)" hidden>⇄ Altro lato</button>
+    <button id="btnOriz" class="chip tasto" title="Guarda la diretta in orizzontale, anche con il telefono in piedi" hidden>↻ Orizzontale</button>
+  </header>
+  <button id="btnAudio" class="attiva-audio" hidden>🔊 Tocca per attivare l'audio</button>
+  <div id="griglia" class="griglia"></div>
+  <div id="chat" class="chat" hidden>
+    <div id="chatLista" class="chat-lista"></div>
+    <form id="chatForm"><input id="chatTesto" placeholder="Scrivi un messaggio" maxlength="300" autocomplete="off"><button>Invia</button></form>
+  </div>
+  <nav class="comandi">
+    <button id="btnMic" title="Microfono">🎤<span>Microfono</span></button>
+    <button id="btnCamera" title="Telecamera">📷<span>Camera</span></button>
+    <button id="btnGira" title="Cambia telecamera" hidden>🔄<span>Gira</span></button>
+    <button id="btnChat" title="Messaggi">💬<span>Messaggi <b id="nonLette" hidden>0</b></span></button>
+    <button id="btnEsci" class="rosso" title="Esci">✕<span>Esci</span></button>
+  </nav>
+</section>
+
+<script src="livekit-client.umd.js"></script>
+<script src="timer-ospite.js"></script>
+<script src="ospite.js"></script>
+</body>
+</html>
